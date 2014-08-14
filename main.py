@@ -7,11 +7,13 @@ print pix[1,1]
 print im.size;
 
 f = open('workfile2.html', 'w')
-f.write("<html><head></head><body><div style='width:12px;height:12px;'>");
+f.write("<style>.p {float:left;height:1px;width:1px;}</style>");
+
+f.write("<html><head></head><body><div style='width:"+str(im.size[0])+"px;height:"+str(im.size[1])+"px;'>");
 
 for x in range(im.size[0]):
     for y in range (im.size[1]):
         
-        f.write("<div style='background-color:rgb"+str(pix[x,y])+";top:"+str(y)+"px;left:"+str(x)+"px;height:1px;width:1px;float:left'></div>");
-
+        f.write("<div class='p' style='background-color:rgb"+str(pix[x,y])+";'></div>");
+ 
 f.write("</div></body></html>");
